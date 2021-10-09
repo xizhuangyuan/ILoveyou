@@ -2,6 +2,4 @@
 这是我的博客
 
 
-|username|password|
-|||
-|小明|123456|
+<h1>Hello word</h1>
