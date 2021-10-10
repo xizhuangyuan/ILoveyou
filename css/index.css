@@ -1,4 +1,4 @@
- body{margin: 0;padding: 0;background-color: #e6f7ff;}
+body{margin: 0;padding: 0;background-color: #e6f7ff;}
         .header{
             height: 20vh;
         }
@@ -11,15 +11,17 @@
             animation-name: rotate;
             animation-duration: 3s;
             animation-timing-function: linear;    /* 匀速执行*/
-            top: 20px;
-            left: 50px;
+            animation-fill-mode: forwards;
+            animation-delay: 10s;
+            top: -20px;
+            left: -50px;
             border-radius: 30px;
         }
 
         @keyframes rotate {
-            0% {opacity: 0;transform: rotate(-90deg);width: 30px;height: 30px;border-radius: 30px;}
+            0% {opacity: 0;transform: rotate(-90deg);width: 30px;height: 30px;border-radius: 30px;top: 20px;left: 50px;}
             50%{width: 60px;height: 60px;border-radius: 60px;}
-            100% {opacity: 1;transform: rotate(90deg);width: 30px;height: 30px;border-radius: 30px;}
+            100% {opacity: 1;transform: rotate(90deg);width: 30px;height: 30px;border-radius: 30px;top: 20px;left: 50px;}
         }
         .main{
             height: 60vh;
@@ -32,10 +34,12 @@
             text-align: center;
             background-color: #91d5ff;
             color: #fff;
-            /* animation-name: rotate2; */
+            top: -250px;
             animation-name: xuanzhuan;
             animation-duration: 1s;
             animation-timing-function: linear;      /* 匀速执行*/
+            animation-delay: 15s;
+            animation-fill-mode: forwards;
         }
 
         @keyframes xuanzhuan{
@@ -47,7 +51,16 @@
             width: 300px;
             height: 50px;
             background-color: #91d5ff;
-            margin-top: 200px;
+            margin: 0 auto;
+            margin-top: -500px;
+            animation-name: xiaoshi;
+            animation-duration: 10s;
+            animation-timing-function: linear;
+
+        }
+        @keyframes xiaoshi{
+            0%{margin-top: 200px;}
+            100%{margin-top: -500px;}
         }
 
         .div1 p {
@@ -57,10 +70,11 @@
             margin-left: 10px;
             margin-top: 10px;
             animation-name: hoptext;
-            animation-duration: 2.3s;
+            animation-duration: 2s;
             /*animation-iteration-count: infinite; */     /* 重复执行*/
             animation-timing-function: ease;       /* 动画由慢到快最后再慢*/
             animation-direction: alternate;         /* 先正着来一遍在反着来一遍*/   
+            /* animation-delay: 3s; */
         }
 
         .s1 {animation-delay: 0.2s;}
@@ -92,4 +106,7 @@
         @keyframes donghua {
             0% {opacity: 1;transform: translateY(0);}	
 	        100% {opacity: 1;transform: translateY(-900px);}
+        }
+        .disappear{
+            display: none;
         }
