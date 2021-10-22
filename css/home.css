@@ -70,9 +70,10 @@ body,h1,h2{
 }
 .main{
     width: 100%;
+    background-color: #ccc;
 }
 .main-center{
-    width: 1000px;
+    width: 1010px;
     height: 100%;
     margin: 0 auto;
 }
@@ -85,10 +86,20 @@ body,h1,h2{
 .main-center-left_div{
     width: 100%;
     margin-top: 30px;
+    margin-left: -1000px;
+}
+.change {
+    animation: move 0.5s alternate both;
+    animation-fill-mode: forwards; 
+}
+
+@keyframes move {
+    100% {
+        margin-left: 0;
+    }
 }
 .title::before{
     padding-right: 10px;
-    margin-left: -40px;
     content: '//';
     color: #9ddcff;
 }
@@ -102,14 +113,16 @@ body,h1,h2{
 }
 .main-center-right{
     width: 300px;
+    box-shadow: 8px -2px 5px -6px #ccc inset;
+    margin-left: 10px;
 }
 .main-center-right_div{
     width: 202px;
     height: 80px;
     background-color: #2e7bcf;
     border-radius: 10px;
-    margin-top: 40px;
-    margin-left: 40px;
+    margin-top: 30px;
+    margin-left: 30px;
 }
 .footer{
 

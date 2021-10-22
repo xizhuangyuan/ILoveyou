@@ -1,6 +1,17 @@
-document.getElementsByClassName('disappear')[0].onclick = function(){
-        document.getElementById('wrap').setAttribute('class','box')
-    }
-    setTimeout(() => {
-        document.getElementsByClassName('disappear')[0].style.display = 'block';
-    }, 15000);
+document.getElementsByClassName('disappear')[0].onclick = function () {
+    document.getElementById('wrap').setAttribute('class', 'box')
+}
+setTimeout(() => {
+    document.getElementsByClassName('disappear')[0].style.display = 'block';
+}, 15000);
+var ani = new Animation({
+    targets: [
+        {
+            el: '',
+            animationClassName: '',
+        },
+        {
+
+        }
+    ]
+})
