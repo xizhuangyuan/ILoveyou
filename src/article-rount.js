@@ -3,6 +3,7 @@ import nanquan2 from './article/南拳2.html';
 import nanquan3 from './article/南拳3.html';
 import nanquan4 from './article/南拳4.html';
 import nanquan5 from './article/南拳5.html';
+import zhouji1 from './article/周记1.html';
 function HTMLarticle(str) {
     var span = document.createElement('span');
     span.innerHTML = str;
@@ -33,5 +34,10 @@ export default[
         id: 5,
         // title: '如何看待知乎上的男拳',
         article: HTMLarticle(nanquan5),
+    },
+    {
+        id: 6,
+        // title: '如何看待知乎上的男拳',
+        article: HTMLarticle(zhouji1),
     },
 ]

@@ -1,4 +1,5 @@
 import rount from '../article-rount';
+import Markdown from '../../pub/js/MarkDown';
 class Url{
     constructor(url){
         this.url = url;
@@ -37,7 +38,8 @@ class Url{
 var url1 = new Url(window.location.search);
 rount.forEach(item=>{
     if(item.id == url1.json.type){
-        document.querySelector('.second-div').querySelector('p').innerHTML = item.article;
+        let md = new Markdown(item.article);
+        document.querySelector('.second-div').querySelector('p').innerHTML = md.parse();
     }
 })
 url1.get('type');  // 1
