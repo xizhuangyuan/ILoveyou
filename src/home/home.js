@@ -1,10 +1,10 @@
 import Ani from '../../pub/js/ani';
 import Translate from '../../pub/js/TransLste';
 import Transparency from '../../pub/js/transparency';
+import rount from '../article-rount';
 let animate1 = Ani.create().use(Transparency).mount(document.getElementsByClassName('tit')[0]);
 let animate2 = Ani.create().use(Translate).mount(document.getElementsByClassName('header-center-right_div1_text')[0]);
 var size = 160;        // 多少个字符换行
-import rount from '../article-rount';
 var odiv = document.querySelector('.main-center-left');     // 父节点
 var idiv = odiv.querySelector('.template');    //  克隆子节点
 String.prototype.ellipsis = function (size) {
@@ -25,6 +25,21 @@ function addtext(text) {
     if (text.article.ellipsis(size).length > size) {
         newdiv.querySelector('.btn').querySelector('.details').style.display = 'inline-block';
     }
+
+    newdiv.querySelector('.btn').querySelector('.details').onclick = function (e) {
+        var a = e.target.parentNode.parentNode.querySelector('h2').dataset.id;
+        e.target.parentNode.parentNode.querySelector('.text').innerHTML = text.article.replace(/\n/g, '<br>');
+        e.target.parentNode.querySelector('.away').style.display = 'inline-block'
+        e.target.style.display = 'none';
+    }
+
+    newdiv.querySelector('.btn').querySelector('.away').onclick = function (e) {
+        var a = e.target.parentNode.parentNode.querySelector('h2').dataset.id;
+        e.target.parentNode.parentNode.querySelector('.text').innerHTML = text.article.ellipsis(size);
+        e.target.parentNode.querySelector('.details').style.display = 'inline-block'
+        e.target.style.display = 'none'
+    }
+
     return newdiv
 }
 var fragment = document.createDocumentFragment();
@@ -43,21 +58,3 @@ document.querySelector('.addbtn').onclick = function (e) {
     var text = rount.shift();
     odiv.appendChild(addtext(text));
 }
-
-var btn = document.querySelectorAll('.btn');
-btn.forEach((item, index) => {
-    item.querySelector('.details').addEventListener('click', (e) => {
-        var a = e.target.parentNode.parentNode.querySelector('h2').dataset.id;
-        e.target.parentNode.parentNode.querySelector('.text').innerHTML = rount[index].article.replace(/\n/g, '<br>');
-        e.target.parentNode.querySelector('.away').style.display = 'inline-block'
-        e.target.parentNode.parentNode.querySelector('h2').dataset.id = a;
-        e.target.style.display = 'none'
-    })
-    item.querySelector('.away').addEventListener('click', (e) => {
-        var a = e.target.parentNode.parentNode.querySelector('h2').dataset.id;
-        e.target.parentNode.parentNode.querySelector('.text').innerHTML = rount[index].article.ellipsis(size);
-        e.target.parentNode.querySelector('.details').style.display = 'inline-block'
-        e.target.parentNode.parentNode.querySelector('h2').dataset.id = a;
-        e.target.style.display = 'none'
-    })
-})
