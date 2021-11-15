@@ -14,20 +14,36 @@ String.prototype.ellipsis = function (size) {
     }
     return this;
 }
-var fragment = document.createDocumentFragment();
-rount.forEach(parse => {
+// 动态克隆div并且创建div
+function addtext(text) {
     var newdiv = idiv.content.cloneNode(true);
-    newdiv.querySelector('.text').innerHTML = parse.article.ellipsis(size);
-    newdiv.querySelector('.text').querySelector('h2').dataset.id = parse.id;
-    newdiv.querySelector('.text').querySelector('h2').onclick = function(e){
-        window.location.href = './articleDetails.html?type='+e.target.dataset.id+'&id=1&name=xiaoming';
+    newdiv.querySelector('.text').innerHTML = text.article.ellipsis(size);
+    newdiv.querySelector('.text').querySelector('h2').dataset.id = text.id;
+    newdiv.querySelector('.text').querySelector('h2').onclick = function (e) {
+        window.location.href = './articleDetails.html?type=' + e.target.dataset.id + '&id=1&name=xiaoming';
     }
-    if(parse.article.ellipsis(size).length>size){
+    if (text.article.ellipsis(size).length > size) {
         newdiv.querySelector('.btn').querySelector('.details').style.display = 'inline-block';
     }
-    fragment.appendChild(newdiv);
-})
+    return newdiv
+}
+var fragment = document.createDocumentFragment();
+for (var i = 0; i < 2; i++) {
+    if (i < 3) {
+        var text = rount.shift();
+        fragment.appendChild(addtext(text));
+    }
+}
 odiv.appendChild(fragment);
+document.querySelector('.addbtn').onclick = function (e) {
+    if (!rount.length) {
+        e.target.style.display = 'none';
+        return;
+    }
+    var text = rount.shift();
+    odiv.appendChild(addtext(text));
+}
+
 var btn = document.querySelectorAll('.btn');
 btn.forEach((item, index) => {
     item.querySelector('.details').addEventListener('click', (e) => {
