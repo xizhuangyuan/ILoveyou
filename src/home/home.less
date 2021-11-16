@@ -108,12 +108,18 @@ h2{
     // display: -webkit-box;
     // -webkit-line-clamp: 3;
     // -webkit-box-orient: vertical;
+    & h2{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
     & h2::before{
         padding-right: 10px;
         content: '//';
         color: #9ddcff;
     }
+    
 }
+
 .main-center-right{
     width: 300px;
     box-shadow: 8px -2px 5px -6px #ccc inset;
@@ -148,6 +154,13 @@ h2{
     display: none;
 }
 .addbtn{
+    float: left;
     cursor: pointer;
     text-align: center;
+    width: 100%;
+    margin-top: 20px;
+}
+.left{
+    width: 700px;
+    float: left;
 }

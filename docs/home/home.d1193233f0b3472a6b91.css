@@ -105,6 +105,10 @@ h2 {
 .text {
   text-indent: 24px;
 }
+.text h2 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 .text h2::before {
   padding-right: 10px;
   content: '//';
@@ -147,7 +151,14 @@ h2 {
   display: none;
 }
 .addbtn {
+  float: left;
   cursor: pointer;
   text-align: center;
+  width: 100%;
+  margin-top: 20px;
+}
+.left {
+  width: 700px;
+  float: left;
 }
 
