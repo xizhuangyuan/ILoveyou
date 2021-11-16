@@ -6,3 +6,6 @@ import Transparency from '../../pub/js/transparency';
 import Translate from '../../pub/js/TransLste';
 let animate1 = Ani.create().use(Transparency).mount(document.getElementsByClassName('btn')[0]);
 let animate2 = Ani.create().use(Translate).mount(document.getElementsByClassName('title')[0]);
+document.querySelector('.btn').onclick = function(){
+    window.location.href = 'http://localhost:8080/home.html';
+}
