@@ -111,9 +111,6 @@ h2 {
   content: '//';
   color: #9ddcff;
 }
-.text article {
-  text-indent: 30px;
-}
 .main-center-right {
   width: 300px;
   box-shadow: 8px -2px 5px -6px #ccc inset;
@@ -130,6 +127,7 @@ h2 {
   align-items: center;
   justify-content: center;
   color: white;
+  font-size: 16px;
 }
 .change2 {
   animation-name: rig;
