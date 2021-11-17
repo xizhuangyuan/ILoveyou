@@ -17,6 +17,17 @@ String.prototype.ellipsis = function (size) {
 // 动态克隆div并且创建div
 function addtext(text) {
     var newdiv = idiv.content.cloneNode(true);
+    newdiv.querySelector('.btn').querySelector('.details').onclick = function (e) {
+        var num = e.target.parentNode.parentNode.querySelector('.text').querySelector('h2').dataset.id;
+        e.target.parentNode.parentNode.querySelector('.text').innerHTML = text.article.replace(/\n/g, '<br>');
+        e.target.parentNode.parentNode.querySelector('.text').querySelector('h2').dataset.id = num;
+        e.target.parentNode.querySelector('.away').style.display = 'inline-block'
+        e.target.style.display = 'none';
+        e.target.parentNode.parentNode.querySelector('.text').querySelector('h2').onclick = function(e){
+            window.location.href = './articleDetails.html?type=' + e.target.dataset.id + '&id=1&name=xiaoming';
+        }   
+    }
+    
     newdiv.querySelector('.text').innerHTML = text.article.ellipsis(size);
     newdiv.querySelector('.text').querySelector('h2').dataset.id = text.id;
     newdiv.querySelector('.text').querySelector('h2').onclick = function (e) {
@@ -26,11 +37,7 @@ function addtext(text) {
         newdiv.querySelector('.btn').querySelector('.details').style.display = 'inline-block';
     }
 
-    newdiv.querySelector('.btn').querySelector('.details').onclick = function (e) {
-        e.target.parentNode.parentNode.querySelector('.text').innerHTML = text.article.replace(/\n/g, '<br>');
-        e.target.parentNode.querySelector('.away').style.display = 'inline-block'
-        e.target.style.display = 'none';
-    }
+    
 
     newdiv.querySelector('.btn').querySelector('.away').onclick = function (e) {
         e.target.parentNode.parentNode.querySelector('.text').innerHTML = text.article.ellipsis(size);
